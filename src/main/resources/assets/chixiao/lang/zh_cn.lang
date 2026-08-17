@@ -1,0 +1,10 @@
+#zh_cn.lang 简体中文
+
+#刀
+item.flammpfeil.slashblade.named.chiling.name=唐刀「赤零」
+item.flammpfeil.slashblade.named.chixiao.name=唐刀「赤霄」
+chixiao.tooltip.chiling=赤霄剑——第零式
+
+#特殊攻击
+flammpfeil.slashblade.specialattack.liefengshuang=冽风霜
+flammpfeil.slashblade.specialattack.jueying=绝影

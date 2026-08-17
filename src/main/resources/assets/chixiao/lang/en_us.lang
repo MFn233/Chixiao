@@ -1,0 +1,10 @@
+#en_us.lang English
+
+#Blades
+item.flammpfeil.slashblade.named.chiling.name=Tang Sword "ChiLing"
+item.flammpfeil.slashblade.named.chixiao.name=Tang Sword "ChiXiao"
+chixiao.tooltip.chiling=赤霄剑——第零式
+
+#Special attack
+flammpfeil.slashblade.specialattack.liefengshuang=LieFengShuang
+flammpfeil.slashblade.specialattack.jueying=JueYing
