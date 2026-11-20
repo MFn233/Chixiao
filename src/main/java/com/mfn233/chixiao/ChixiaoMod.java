@@ -29,6 +29,8 @@ public class ChixiaoMod {
     public void preInit(FMLPreInitializationEvent event) {
         LOGGER.info("{} is loading!", Tags.MOD_NAME);
 
+        ChixiaoConfig.load(event);
+
         EntityRegistry.registerModEntity(new ResourceLocation(Tags.MOD_ID, "chixiao_drive"),
                 ChixiaoDrive.class, "ChixiaoDrive", 11, instance, 250, 10, true);
 

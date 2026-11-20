@@ -1,5 +1,6 @@
 package com.mfn233.chixiao.specialattack;
 
+import com.mfn233.chixiao.ChixiaoConfig;
 import com.mfn233.chixiao.Tags;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import mods.flammpfeil.slashblade.specialattack.SpecialAttackBase;
@@ -33,7 +34,7 @@ public class JueYing extends SpecialAttackBase {
             if (!ItemSlashBlade.ProudSoul.tryAdd(tag, cost, false)) {
                 ItemSlashBlade.damageItem(stack, 10, player);
             }
-            ConsecutiveFireScheduler.schedule(player, SHOT_COUNT, DAMAGE, COLORS, false);
+            ConsecutiveFireScheduler.schedule(player, SHOT_COUNT, DAMAGE, COLORS, false, ChixiaoConfig.jueYingScale());
         }
 
         ItemSlashBlade.setComboSequence(tag, ItemSlashBlade.ComboSequence.SlashEdge);

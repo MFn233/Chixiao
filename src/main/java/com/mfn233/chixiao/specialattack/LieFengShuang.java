@@ -1,5 +1,6 @@
 package com.mfn233.chixiao.specialattack;
 
+import com.mfn233.chixiao.ChixiaoConfig;
 import com.mfn233.chixiao.Tags;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
 import mods.flammpfeil.slashblade.specialattack.SpecialAttackBase;
@@ -15,7 +16,7 @@ import net.minecraft.world.World;
 public class LieFengShuang extends SpecialAttackBase {
     public static final int SHOT_COUNT = 7;
 
-    private static final float[] DAMAGE = {10.0f, 15.0f, 20.0f, 25.0f, 30.0f, 35.0f, 40.0f};
+    private static final float[] DAMAGE = {6.0f, 8.0f, 10.0f, 13.0f, 16.0f, 18.0f, 20.0f};
     private static final int[] COLORS = {0x33A0FF, 0xFF4040, 0x33A0FF, 0xFF4040, 0x33A0FF, 0xFF4040, 0x33A0FF};
 
     @Override
@@ -33,7 +34,7 @@ public class LieFengShuang extends SpecialAttackBase {
             if (!ItemSlashBlade.ProudSoul.tryAdd(tag, cost, false)) {
                 ItemSlashBlade.damageItem(stack, 10, player);
             }
-            ConsecutiveFireScheduler.schedule(player, SHOT_COUNT, DAMAGE, COLORS, true);
+            ConsecutiveFireScheduler.schedule(player, SHOT_COUNT, DAMAGE, COLORS, true, ChixiaoConfig.lieFengShuangScale());
         }
 
         ItemSlashBlade.setComboSequence(tag, ItemSlashBlade.ComboSequence.SlashEdge);

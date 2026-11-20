@@ -1,5 +1,6 @@
 package com.mfn233.chixiao.specialattack;
 
+import com.mfn233.chixiao.ChixiaoConfig;
 import com.mfn233.chixiao.entity.ChixiaoDrive;
 import mods.flammpfeil.slashblade.entity.EntitySummonedSwordBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,14 +33,14 @@ public class ConsecutiveFireScheduler {
 
     private final Deque<ShotTask> queue = new ArrayDeque<ShotTask>();
 
-    public static void schedule(EntityPlayer player, int count, float[] damage, int[] colors, boolean bladeQi) {
+    public static void schedule(EntityPlayer player, int count, float[] damage, int[] colors, boolean bladeQi, float scale) {
         ConsecutiveFireScheduler self = getInstance();
         for (ShotTask running : self.queue) {
             if (running.player == player) {
                 return; // 同一玩家已有连射在播放，忽略新请求，避免刷屏与队列堆积
             }
         }
-        self.queue.add(new ShotTask(player, count, damage, colors, bladeQi));
+        self.queue.add(new ShotTask(player, count, damage, colors, bladeQi, scale));
     }
 
     @SubscribeEvent
@@ -72,7 +73,7 @@ public class ConsecutiveFireScheduler {
 
     private static void fire(ShotTask task) {
         EntityPlayer player = task.player;
-        float damage = task.damage[task.index];
+        float damage = task.damage[task.index] * task.scale;
         int color = task.colors[task.index];
 
         if (task.bladeQi) {
@@ -97,16 +98,18 @@ public class ConsecutiveFireScheduler {
         final float[] damage;
         final int[] colors;
         final boolean bladeQi;
+        final float scale;
         int index;
         int tick;
         int age;
 
-        ShotTask(EntityPlayer player, int count, float[] damage, int[] colors, boolean bladeQi) {
+        ShotTask(EntityPlayer player, int count, float[] damage, int[] colors, boolean bladeQi, float scale) {
             this.player = player;
             this.count = count;
             this.damage = damage;
             this.colors = colors;
             this.bladeQi = bladeQi;
+            this.scale = scale;
         }
     }
 }
