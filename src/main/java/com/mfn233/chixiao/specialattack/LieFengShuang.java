@@ -13,8 +13,6 @@ import net.minecraft.world.World;
  * The qi alternates blue/red/blue/.../blue; damage increases up to 40 on the last wave.
  */
 public class LieFengShuang extends SpecialAttackBase {
-
-    public static final int SA_TYPE = Integer.parseInt(Tags.SA_TYPE);
     public static final int SHOT_COUNT = 7;
 
     private static final float[] DAMAGE = {10.0f, 15.0f, 20.0f, 25.0f, 30.0f, 35.0f, 40.0f};
@@ -22,7 +20,7 @@ public class LieFengShuang extends SpecialAttackBase {
 
     @Override
     public String toString() {
-        return Tags.SA_NAME;
+        return Tags.SA_NAME_LIE_FENG_SHUANG;
     }
 
     @Override

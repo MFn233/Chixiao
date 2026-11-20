@@ -1,7 +1,5 @@
 package com.mfn233.chixiao;
 
-import com.mfn233.chixiao.specialattack.JueYing;
-import com.mfn233.chixiao.specialattack.LieFengShuang;
 import mods.flammpfeil.slashblade.ItemSlashBladeNamed;
 import mods.flammpfeil.slashblade.SlashBlade;
 import mods.flammpfeil.slashblade.item.ItemSlashBlade;
@@ -20,13 +18,9 @@ public class ChilingBlade {
 
     public static final String NAME = Tags.BLADE_KEY_CHILING;
 
+    /** 由 SaRegistry 统一分配 id 并注册（旧实现会静默跳过冲突，见 SaRegistry 的注释）。 */
     public static void registerSpecialAttack() {
-        if (!ItemSlashBlade.specialAttacks.containsKey(LieFengShuang.SA_TYPE)) {
-            ItemSlashBlade.specialAttacks.put(LieFengShuang.SA_TYPE, new LieFengShuang());
-        }
-        if (!ItemSlashBlade.specialAttacks.containsKey(JueYing.SA_TYPE)) {
-            ItemSlashBlade.specialAttacks.put(JueYing.SA_TYPE, new JueYing());
-        }
+        SaRegistry.registerAll();
     }
 
     public static void registerBlade() {
@@ -45,7 +39,7 @@ public class ChilingBlade {
         ItemSlashBlade.setBaseAttackModifier(tag, 4.0f + Item.ToolMaterial.DIAMOND.getAttackDamage());
         ItemSlashBlade.TextureName.set(tag, "chiling/chiling");
         ItemSlashBlade.ModelName.set(tag, "chiling/chiling");
-        ItemSlashBlade.SpecialAttackType.set(tag, LieFengShuang.SA_TYPE);
+        ItemSlashBlade.SpecialAttackType.set(tag, SaRegistry.LIE_FENG_SHUANG);
         ItemSlashBlade.StandbyRenderType.set(tag, 1);
 
         ItemSlashBladeNamed.IsDefaultBewitched.set(tag, true);

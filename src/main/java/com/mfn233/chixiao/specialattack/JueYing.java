@@ -13,8 +13,6 @@ import net.minecraft.world.World;
  * The first 6 swords deal 10 damage each (red glow), the final one deals 30 (blue glow).
  */
 public class JueYing extends SpecialAttackBase {
-
-    public static final int SA_TYPE = Integer.parseInt(Tags.SA_TYPE_JUEYING);
     public static final int SHOT_COUNT = 7;
 
     private static final float[] DAMAGE = {10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 10.0f, 30.0f};
@@ -22,7 +20,7 @@ public class JueYing extends SpecialAttackBase {
 
     @Override
     public String toString() {
-        return Tags.SA_NAME_JUEYING;
+        return Tags.SA_NAME_JUE_YING;
     }
 
     @Override

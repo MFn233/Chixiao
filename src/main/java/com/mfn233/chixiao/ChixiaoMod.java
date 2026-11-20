@@ -34,6 +34,7 @@ public class ChixiaoMod {
 
         ChilingBlade.registerSpecialAttack();
         MinecraftForge.EVENT_BUS.register(ConsecutiveFireScheduler.getInstance());
+        MinecraftForge.EVENT_BUS.register(new BladeMigration());
         ChilingBlade.registerBlade();
         ChixiaoBlade.registerBlade();
     }

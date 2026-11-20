@@ -1,6 +1,5 @@
 package com.mfn233.chixiao;
 
-import com.mfn233.chixiao.specialattack.JueYing;
 import mods.flammpfeil.slashblade.ItemSlashBladeNamed;
 import mods.flammpfeil.slashblade.RecipeAwakeBlade;
 import mods.flammpfeil.slashblade.SlashBlade;
@@ -34,7 +33,7 @@ public class ChixiaoBlade {
         ItemSlashBlade.setBaseAttackModifier(tag, 4.0f + Item.ToolMaterial.DIAMOND.getAttackDamage());
         ItemSlashBlade.TextureName.set(tag, "chixiao/chixiao");
         ItemSlashBlade.ModelName.set(tag, "chixiao/chixiao");
-        ItemSlashBlade.SpecialAttackType.set(tag, JueYing.SA_TYPE);
+        ItemSlashBlade.SpecialAttackType.set(tag, SaRegistry.JUE_YING);
         ItemSlashBlade.StandbyRenderType.set(tag, 1);
 
         ItemSlashBladeNamed.IsDefaultBewitched.set(tag, true);

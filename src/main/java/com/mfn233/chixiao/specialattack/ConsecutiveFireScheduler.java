@@ -16,6 +16,8 @@ import java.util.Deque;
 public class ConsecutiveFireScheduler {
 
     private static final int FIRE_INTERVAL = 4;
+    /** 单个任务的最长存活时间（tick）：10 秒还没打完就丢弃，避免玩家掉线后任务残留。 */
+    private static final int MAX_AGE = 200;
 
     private static final class SingletonHolder {
         private static final ConsecutiveFireScheduler INSTANCE = new ConsecutiveFireScheduler();
@@ -31,7 +33,13 @@ public class ConsecutiveFireScheduler {
     private final Deque<ShotTask> queue = new ArrayDeque<ShotTask>();
 
     public static void schedule(EntityPlayer player, int count, float[] damage, int[] colors, boolean bladeQi) {
-        getInstance().queue.add(new ShotTask(player, count, damage, colors, bladeQi));
+        ConsecutiveFireScheduler self = getInstance();
+        for (ShotTask running : self.queue) {
+            if (running.player == player) {
+                return; // 同一玩家已有连射在播放，忽略新请求，避免刷屏与队列堆积
+            }
+        }
+        self.queue.add(new ShotTask(player, count, damage, colors, bladeQi));
     }
 
     @SubscribeEvent
@@ -45,6 +53,11 @@ public class ConsecutiveFireScheduler {
 
         ShotTask task = queue.peek();
         if (task.player == null || task.player.isDead || task.player.world == null) {
+            queue.poll();
+            return;
+        }
+
+        if (++task.age > MAX_AGE) {
             queue.poll();
             return;
         }
@@ -86,6 +99,7 @@ public class ConsecutiveFireScheduler {
         final boolean bladeQi;
         int index;
         int tick;
+        int age;
 
         ShotTask(EntityPlayer player, int count, float[] damage, int[] colors, boolean bladeQi) {
             this.player = player;
