@@ -8,3 +8,6 @@ chixiao.tooltip.chiling=赤霄剑——第零式
 #特殊攻击
 flammpfeil.slashblade.specialattack.liefengshuang=冽风霜
 flammpfeil.slashblade.specialattack.jueying=绝影
+
+#觉醒需求
+chixiao.tooltip.awaken=觉醒：击杀 %s/%s，耀魂 %s/%s

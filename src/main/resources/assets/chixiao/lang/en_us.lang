@@ -8,3 +8,6 @@ chixiao.tooltip.chiling=ChiXiao Sword - Zeroth Form
 #Special attack
 flammpfeil.slashblade.specialattack.liefengshuang=LieFengShuang
 flammpfeil.slashblade.specialattack.jueying=JueYing
+
+#Awakening requirement
+chixiao.tooltip.awaken=Awakening: kills %s/%s, proud soul %s/%s
