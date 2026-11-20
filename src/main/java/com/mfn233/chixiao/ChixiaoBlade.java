@@ -55,19 +55,20 @@ public class ChixiaoBlade {
         ItemStack chilingReq = SlashBlade.getCustomBlade(SlashBlade.modid, ChilingBlade.NAME);
         ItemSlashBlade.KillCount.set(ItemSlashBlade.getItemTagCompound(chilingReq), 100);
 
+        // 赤霄是"后期目标"：在赤零（100 击杀）之上再叠 2 颗耀魂宝珠、2 块耀魂铁锭、
+        // 1 个钻石块、2 根烈焰棒与 1 个红石块。
         SlashBlade.addRecipe(NAME, new RecipeAwakeBlade(
                 new ResourceLocation(Tags.MOD_ID, "chixiao"),
                 blade,
                 chilingReq,
                 "ABA",
-                "CDE",
-                "FGF",
-                'A', ingotSoul,
-                'B', sphereSoul,
-                'C', "blockCoal",
+                "CDC",
+                "EFE",
+                'A', sphereSoul,
+                'B', "blockRedstone",
+                'C', ingotSoul,
                 'D', chilingReq,
-                'E', "blockRedstone",
-                'F', new ItemStack(Items.BLAZE_ROD),
-                'G', new ItemStack(Items.FLINT)));
+                'E', new ItemStack(Items.BLAZE_ROD),
+                'F', "blockDiamond"));
     }
 }

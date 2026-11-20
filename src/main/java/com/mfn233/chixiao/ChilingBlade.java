@@ -55,25 +55,20 @@ public class ChilingBlade {
     @SubscribeEvent
     public void postInit(LoadEvent.PostInitEvent event) {
         ItemStack blade = SlashBlade.getCustomBlade(SlashBlade.modid, NAME);
-        ItemStack soul = SlashBlade.findItemStack(SlashBlade.modid, SlashBlade.ProudSoulStr, 1);
         ItemStack ingotSoul = SlashBlade.findItemStack(SlashBlade.modid, SlashBlade.IngotBladeSoulStr, 1);
         ItemStack sphereSoul = SlashBlade.findItemStack(SlashBlade.modid, SlashBlade.SphereBladeSoulStr, 1);
-        ItemStack tinySoul = SlashBlade.findItemStack(SlashBlade.modid, SlashBlade.TinyBladeSoulStr, 1);
 
+        // 赤零是"中期目标"：4 颗耀魂宝珠、2 块耀魂铁锭、1 个钻石块，外加一把铁剑作刀胚、浮冰作"冽"的意象。
         SlashBlade.addRecipe(NAME, new ShapedOreRecipe(
                 new ResourceLocation(Tags.MOD_ID, "chiling"),
                 blade,
-                "ABC",
-                "DEF",
-                "GHI",
-                'A', new ItemStack(Blocks.PACKED_ICE),
-                'B', ingotSoul,
-                'C', "blockIron",
-                'D', sphereSoul,
-                'E', "blockIron",
-                'F', soul,
-                'G', new ItemStack(Items.IRON_SWORD),
-                'H', tinySoul,
-                'I', "gemDiamond"));
+                "ABA",
+                "CDC",
+                "AEA",
+                'A', sphereSoul,
+                'B', "blockDiamond",
+                'C', ingotSoul,
+                'D', new ItemStack(Items.IRON_SWORD),
+                'E', new ItemStack(Blocks.PACKED_ICE)));
     }
 }
